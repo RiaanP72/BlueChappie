@@ -89,15 +89,8 @@ namespace BlueChappie
             string _response = readAPI("https://api.flickr.com/services/rest/?method=flickr.photos.search&tags=" + tag + "&text=landmark&safe_search=&format=rest&api_key=7431acca741fc97b174a5b4c8110b68c",tag);
             return _response;
         }
-        public void SaveImage(image img) {
-            var node = new Uri("http://10.0.0.10:9200/bluechappie/imagelib");
-            var config = new ConnectionConfiguration(node);
-            var client = new ElasticLowLevelClient(config);
-            string imgInfo = Newtonsoft.Json.JsonConvert.SerializeObject(img);
-            PostData<object> postingData = imgInfo;
-            dynamic result0 = client.DoRequest<object>(HttpMethod.PUT, img.imgGUID, postingData);
-            }
-        public string readAPI(string apiURL,String tag) {
+        public string readAPI(string apiURL, String tag)
+        {
             string completeUrl = apiURL;
             string _retval = "";
             System.Net.WebRequest request = WebRequest.Create(completeUrl);
@@ -108,21 +101,15 @@ namespace BlueChappie
             reader.Close();
             dataStream.Close();
             response.Close();
-            //System.IO.MemoryStream memoryStream = new MemoryStream();
-            //System.Xml.Serialization.XmlSerializer xmlSerializer = new System.Xml.Serialization.XmlSerializer(reader.GetType());
-            //xmlSerializer.Serialize(memoryStream, reader);
-            //memoryStream.Position = 0;
-            //XmlDocument xmlDocument = new XmlDocument();
-            //xmlDocument.Load(memoryStream);
-            //XmlReader xmlreader = XmlReader.Create(new StringReader(xmlDocument.DocumentElement.InnerXml.ToString()));
             XmlReader xmlreader = XmlReader.Create(new StringReader(responseFromServer));
             while (xmlreader.Read())
             {
                 switch (xmlreader.NodeType)
                 {
                     case XmlNodeType.Element:
-                        _retval=(xmlreader.Name);
-                        if (Equals(xmlreader.Name, "photo")) {
+                        _retval = (xmlreader.Name);
+                        if (Equals(xmlreader.Name, "photo"))
+                        {
                             image imageinfo = new image();
                             string imagepth = "https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg".Normalize().Replace("{farm-id}", xmlreader.GetAttribute("farm")).Replace("{server-id}", xmlreader.GetAttribute("server")).Replace("{id}", xmlreader.GetAttribute("id")).Replace("{secret}", xmlreader.GetAttribute("secret"));
                             imageinfo.title = xmlreader.GetAttribute("title");
@@ -130,10 +117,7 @@ namespace BlueChappie
                             imageinfo.sourceURL = imagepth;
                             imageinfo.source = apiURL;
                             imageinfo.keywords = tag;
-
                             SaveImage(imageinfo);
-
-
                         }
                         break;
                     case XmlNodeType.Text:
@@ -147,11 +131,22 @@ namespace BlueChappie
                         _retval = (xmlreader.Value);
                         break;
                     case XmlNodeType.EndElement:
-                      //  _retval =WriteFullEndElement();
+                        //  _retval =WriteFullEndElement();
                         break;
                 }
             }
             return "";
         }
+        public void SaveImage(image img) {
+            var node = new Uri("http://10.0.0.10:9200/bluechappie/imagelib");
+            var config = new ConnectionConfiguration(node);
+            var client = new ElasticLowLevelClient(config);
+            string imgInfo = Newtonsoft.Json.JsonConvert.SerializeObject(img);
+            PostData<object> postingData = imgInfo;
+            dynamic result0 = client.DoRequest<object>(HttpMethod.PUT, img.imgGUID, postingData);
+        }
+
+        
+        
     }
 }
