@@ -12,8 +12,9 @@ namespace BlueChappie.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = "Home Page";
-            
+
             //View.JavaScript("/js/bluechappie.index.js").
+            
             return View();
         }
     }

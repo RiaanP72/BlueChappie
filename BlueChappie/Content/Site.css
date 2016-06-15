@@ -1,6 +1,7 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 5px;
     padding-bottom: 20px;
+    background-image:url("/Images/BlueChappieBackGround.jpg")
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -14,4 +15,62 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+.imagelist {
+    border-radius:12px;
+    
+
+}
+.imageinfo {
+    border-style:inset;
+    border-width:1px;
+    border-radius:12px;
+    border-color:darkblue;
+    width:99%;
+    height:70%;
+    position:fixed;
+    background-color:#222222;
+    
+    
+    top:15%;
+    margin:0 auto;
+    visibility:hidden;
+}
+
+
+.imagename {
+    border-radius:6px;
+    text-align:right;
+    background-image:url("/images/BlueChappieBalls.jpg");
+    padding-right:12px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:darkslateblue;
+
+    
+}
+.imgtxtinfo {
+    border-radius:6px;
+    text-align:right;
+    background-image:url("/images/BlueChappieBalls.jpg");
+    padding-right:12px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:darkslateblue;
+    
+}
+
+.imgtxtdata {
+    border-radius:6px;
+    text-align:left;
+    background-image:url("/images/BlueChappieBalls.jpg");
+    padding-right:12px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:darkslateblue;
+    font-weight:bolder;
+}
+
+img {
+        border-radius:2.5px;
+}
+input {
+        border-radius:4px;
 }

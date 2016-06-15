@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
-using static BlueChappie.Models.MainApplicationModels;
+using static BlueChappie.Models.BlueChappieModels;
 using BlueChappie;
 namespace BlueChappie.Controllers
 {
@@ -14,12 +14,16 @@ namespace BlueChappie.Controllers
         //}
 
         //// GET api/values/5
-        public string Get()
+        public images<image> Get(string SearchFor="")
         {
             clsMainProgram cls = new clsMainProgram();
             //PlainList<plainList> ProvinceList = cls.lstProviceList();
             //return "{ PlainList: " +  Newtonsoft.Json.JsonConvert.SerializeObject( ProvinceList ) + "}";
-            return cls.SyncImages();
+
+            images<image> imagelist = cls.SearchImages(SearchFor);
+            return imagelist;
+
+            //return cls.SyncImages();
 
         }
 
