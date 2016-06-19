@@ -606,7 +606,7 @@
 
                     transport.start(connection, function () { // success
                         var onStartSuccess = function () {
-                                // Firefox 11+ doesn't allow sync XHR withCredentials: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest#withCredentials
+                                // Firefox 11+ doesn't allow sync XHR withCredentials: https://developer.mozilla.org/en-US/docs/Webapi/XMLHttpRequest#withCredentials
                                 var isFirefox11OrGreater = signalR._.firefoxMajorVersion(window.navigator.userAgent) >= 11,
                                     asyncAbort = !!connection.withCredentials && isFirefox11OrGreater;
 

@@ -22,6 +22,33 @@ namespace BlueChappie {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// lblUserClick control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUserClick;
+        
+        /// <summary>
+        /// lblUserEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUserEmail;
+        
+        /// <summary>
+        /// ctlLocations1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::BlueChappie.ctlLocations ctlLocations1;
+        
+        /// <summary>
         /// txtLocation control.
         /// </summary>
         /// <remarks>
@@ -40,6 +67,15 @@ namespace BlueChappie {
         protected global::System.Web.UI.WebControls.Button btnLookUpAndSync;
         
         /// <summary>
+        /// ctlUserLocations1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::BlueChappie.ctlUserLocations ctlUserLocations1;
+        
+        /// <summary>
         /// ctrlImages1 control.
         /// </summary>
         /// <remarks>
@@ -47,5 +83,23 @@ namespace BlueChappie {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::BlueChappie.ctrlImages ctrlImages1;
+        
+        /// <summary>
+        /// hvUserEmailAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hvUserEmailAddress;
+        
+        /// <summary>
+        /// hvUserId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hvUserId;
     }
 }

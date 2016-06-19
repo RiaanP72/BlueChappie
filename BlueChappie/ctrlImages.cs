@@ -42,7 +42,7 @@ namespace BlueChappie
             string _retval = "";
             clsMainProgram cls = new clsMainProgram();
             images<image> imagelist = new images<image>();
-            imagelist = cls.SearchImages(Location);
+            imagelist = cls.SearchImagesPerLocation(Location);
 
             _retval += "<table>";
             int i = 0;
@@ -54,13 +54,14 @@ namespace BlueChappie
             {
                 if (i == 1) {
                     clickevent = kwot + "getImgData('" + img.imgGUID + "');" + kwot;
-                    _retval += "<td><table><tr><td><img width=" + kwot + "500px" + kwot + " class=" + kwot + "imagelist" + kwot + " onclick=" + clickevent + " src=" + kwot + "data:image/jpeg;base64," + img.webImageBase64Encoded + "" + kwot + " /></td></tr><tr><td> <p class=" + kwot + "imagename" + kwot + ">" + img.title + "</p></td></tr></table></td></tr>"  + crlf;
+                    _retval += "<td><table><tr><td><img class=" + kwot + "imagelist" + kwot + " onmouseover='cursor:hand' onclick=" + clickevent + " src=" + kwot + "data:image/jpeg;base64," + img.webImageBase64Encoded + "" + kwot + " /></td></tr><tr><td> <p class=" + kwot + "imagename" + kwot + ">" + img.title.Replace("`","'") + "</p></td></tr></table></td></tr>"  + crlf;
                     i = 0;
                 } else {
 
                     clickevent = kwot + "getImgData('" + img.imgGUID + "');" + kwot;
-                    _retval += "<tr><td><table><tr><td><img width=" + kwot + "500px" + kwot + " class=" + kwot + "imagelist" + kwot + " onclick=" + clickevent + " src=" + kwot + "data:image/jpeg;base64," + img.webImageBase64Encoded + "" + kwot + " /></td></tr><tr><td> <p class=" + kwot + "imagename" + kwot + ">" + img.title + "</p></td></tr></table></td>" + crlf;
-                  //  _retval += "<tr><td><table><tr><td> <img width='500px' class='imagelist' onclick=" + clickevent + " src='data:image/jpeg;base64," + img.webImageBase64Encoded + "'                                                                /></td></tr><tr><td> <p class='imagename'>" + img.title + "                      </p></td></tr></table></td>" + crlf;
+                    _retval += "<tr><td><table><tr><td><img class=" + kwot + "imagelist" + kwot + " onmouseover='cursor:hand' onclick=" + clickevent + " src=" + kwot + "data:image/jpeg;base64," + img.webImageBase64Encoded + "" + kwot + " /></td></tr><tr><td> <p class=" + kwot + "imagename" + kwot + ">" + img.title.Replace("`", "'") + "</p></td></tr></table></td>" + crlf;
+                    //_retval += "<tr><td><table><tr><td><img width=" + kwot + "500px" + kwot + " class=" + kwot + "currentimage" + kwot + " onclick=" + clickevent + " src=" + kwot + "data:image/jpeg;base64," + img.webImageBase64Encoded + "" + kwot + " /></td></tr><tr><td> <p class=" + kwot + "imagename" + kwot + ">" + img.title + "</p></td></tr></table></td>" + crlf;
+                    //  _retval += "<tr><td><table><tr><td> <img width='500px' class='imagelist' onclick=" + clickevent + " src='data:image/jpeg;base64," + img.webImageBase64Encoded + "'                                                                /></td></tr><tr><td> <p class='imagename'>" + img.title + "                      </p></td></tr></table></td>" + crlf;
                     i++;
                     }
                     

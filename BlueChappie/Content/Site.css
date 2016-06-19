@@ -1,7 +1,7 @@
 ﻿body {
-    padding-top: 5px;
+    padding-top: 1px;
     padding-bottom: 20px;
-    background-image:url("/Images/BlueChappieBackGround.jpg")
+    background-image:url("../images/BlueChappieBackGround.jpg")
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -16,56 +16,122 @@ select,
 textarea {
     max-width: 280px;
 }
+td {
+    padding-top:1px;
+    padding-bottom:1px;
+}
 .imagelist {
     border-radius:12px;
+    border-style:solid;
+    border-color:transparent;
     
 
 }
 .imageinfo {
-    border-style:inset;
+    
     border-width:1px;
     border-radius:12px;
     border-color:darkblue;
     width:99%;
-    height:70%;
     position:fixed;
     background-color:#222222;
-    
-    
     top:15%;
     margin:0 auto;
     visibility:hidden;
 }
+.waitscreen {
+    width:99%;
+    position:fixed;
+    left:49%;
+    top:15%;
+    margin:0 auto;
+    visibility:hidden;
+    
 
+}
+
+.sitebuttons {
+    background-color:#222222;
+    color:white;
+    border-radius:7px;
+    padding-left:5px;
+    width:220px;
+    cursor:pointer; 
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+    text-align: center;
+    border-style:outset;
+
+}
+.locations {
+    position:relative;
+     background-color:#222222;
+     width:1030px;
+     border-radius:10px;
+     color:white;
+     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     text-transform:capitalize;
+     
+}
+.divuser {
+    position:absolute;
+     background-color:#222222;
+     width:250px;
+     left:830px;
+     border-radius:15px;
+     color:white;
+     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     
+}
+.fav {
+    height:20px;
+    width:20px;
+}
+.locationsp {
+    cursor:pointer;
+
+
+}
+.centreScreen {
+    align-items:center;
+}
+.locationsimg {
+     
+     border-radius:15px;
+}
+
+.currentimage {
+    text-align:center;
+    border-radius:12px;
+    padding-left:12px;
+    
+}
 
 .imagename {
     border-radius:6px;
     text-align:right;
-    background-image:url("/images/BlueChappieBalls.jpg");
+    background-image:url("../images/BlueChappieBalls.jpg");
     padding-right:12px;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color:darkslateblue;
-
+    
     
 }
 .imgtxtinfo {
-    border-radius:6px;
-    text-align:right;
-    background-image:url("/images/BlueChappieBalls.jpg");
-    padding-right:12px;
+    text-align:left;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color:darkslateblue;
+    color:white;
+    font-size:12px;
     
 }
 
 .imgtxtdata {
-    border-radius:6px;
     text-align:left;
-    background-image:url("/images/BlueChappieBalls.jpg");
-    padding-right:12px;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color:darkslateblue;
-    font-weight:bolder;
+    color:white;
+    font-size:12px;
+    font-weight:700;
+    border-left:solid;
+    padding-left:4px;
 }
 
 img {
