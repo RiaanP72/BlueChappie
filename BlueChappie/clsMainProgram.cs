@@ -207,7 +207,7 @@ namespace BlueChappie
                         }
                     }
                     locationlist.Add(locnt);
-                }
+                } 
             }
             else
             {
