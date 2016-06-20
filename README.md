@@ -6,7 +6,7 @@ In the __Installation folder in a SQL script to create the data base on an SQL s
 The images are stored Base64 encoded to enable easy transport.
 My elasticsearch server lives on my Debian Linux box.
 #Quick Setup:
-Download the file BlueChappie.zip and extract it to your IIS server www folder. if it cannot have it's own DNS entry ,ake sure it's "Converted to Application". It is build with .NET 4.5.2 so the recommended application pool is .NET v4.5 classic or integrated.
+Download the file BlueChappie.zip (https://BlueChappie/BlueChappie.zip) and extract it to your IIS server www folder. if it cannot have it's own DNS entry ,ake sure it's "Converted to Application". It is build with .NET 4.5.2 so the recommended application pool is .NET v4.5 classic or integrated.
 #ElasticSearch
 It is my 1st time playing around with elasticsearch and I must say a learnt allot in these few days. It is a great product!
 To see what BlueChappie runs like the video is on https://youtu.be/vFHNb5jcGWg
