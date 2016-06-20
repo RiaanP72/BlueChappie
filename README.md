@@ -10,6 +10,7 @@ Download the file BlueChappie.zip ( https://github.com/RiaanP72/BlueChappie/blob
 
 #Know bugg !!!:
 The wiring for index.chtml is incorrect. It will be fixed shortly.
+In the meantime run default.aspx (http://localhost/bluechappie/default.aspx)
 
 #ElasticSearch
 It is my 1st time playing around with elasticsearch and I must say a learnt allot in these few days. It is a great product!
