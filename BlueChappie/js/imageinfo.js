@@ -20,7 +20,7 @@ function showhideLocations()
      var userid = document.getElementById("hvUserId").value;
      if (userid != null) {
          $.ajax({
-             url: "api/LocationsHTML?userID=" + userid
+             url: "~/api/LocationsHTML?userID=" + userid
          }).then(function (data) {
              document.getElementById("divlocations").innerHTML = data;
          }
@@ -29,7 +29,7 @@ function showhideLocations()
      } else {
 
           $.ajax({
-             url: "api/LocationsHTML"
+             url: "~/api/LocationsHTML"
          }).then(function (data) {
              document.getElementById("divlocations").innerHTML = data;
          }
@@ -59,7 +59,7 @@ function getImgData(imgGUID)
     $(document.getElementById("divUser")).slideUp(20);
     $(document.getElementById("divUserlocations")).slideUp(20);
     $.ajax({
-            url: "api/ImageInfo?imgGUID=" + imgGUID
+            url: "~/api/ImageInfo?imgGUID=" + imgGUID
         }).then(function(data) {
             document.getElementById("img").innerHTML = '<img class="img" src="data:image/jpg;base64,' + data.webImageBase64Encoded + '">';
             document.getElementById("imgtitle").innerHTML=data.title;

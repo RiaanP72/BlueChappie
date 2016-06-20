@@ -25,13 +25,13 @@ namespace BlueChappie.Controllers
                 if (lcn.isFavourite)
                 {
                     _retval += "<tr><td><p class=" + kwot + "locationsp" + kwot + " onclick=" + kwot + "imgSelectLocation('" + lcn.tKey + "')" + kwot + ">" + lcn.tag + "</p>";
-                    _retval += "<img src=" + kwot + "images/favRem.png" + kwot + " class=" + kwot + "fav" + kwot + " onclick=" + kwot + "addUserLocationToFavourite('" + lcn.tKey + "')" + kwot + " id=" + kwot + "u" + lcn.tKey + kwot + " />";
+                    _retval += "<img src=" + kwot + "images/favRem.png" + kwot + " class=" + kwot + "fav" + kwot + " onclick=" + kwot + "addUserLocationToFavourite('" + lcn.tKey + "')" + kwot + " id=" + kwot + "u" + lcn.tKey + kwot + " style=" + kwot + "cursor:pointer" + kwot + " />";
                     _retval += "</td><td><p class=" + kwot + "locationsp" + kwot + " onclick=" + kwot + "imgSelectLocation('" + lcn.tKey + "')" + kwot + ">" + lcn.counter + "</td><td>";
                     int i = 0;
 
                     foreach (image img in lcn.locationimages)
                     {
-                        _retval += "<td><img  onclick=" + kwot + "imgSelectLocation('" + lcn.tKey + "')" + kwot + " class=" + kwot + "locationsimg" + kwot + " onmousehover='cursor:pointer' src=" + kwot + "data:image/jpeg;base64," + img.webImageThumbnailBase64Encoded + "" + kwot + " /></td>" + crlf;
+                        _retval += "<td><img  onclick=" + kwot + "imgSelectLocation('" + lcn.tKey + "')" + kwot + " class=" + kwot + "locationsimg" + kwot + " onmousehover='cursor:pointer' src=" + kwot + "data:image/jpeg;base64," + img.webImageThumbnailBase64Encoded + "" + kwot + "  style=" + kwot + "cursor:pointer" + kwot + " /></td>" + crlf;
                         i++;
                         if (i > 13)
                         {

@@ -254,14 +254,18 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageInfoController.cs" />
+    <Compile Include="Controllers\ImageListHTMLController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\LocationsHTMLController.cs" />
     <Compile Include="Controllers\LocationsWithThumbNailsController.cs" />
     <Compile Include="Controllers\LocationWithImagesController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MainImageListHTMLController.cs" />
+    <Compile Include="Controllers\ScanOnlineController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserLocationsController.cs" />
     <Compile Include="Controllers\UserLocationsHTMLController.cs" />
+    <Compile Include="Controllers\UserSessionsController.cs" />
     <Compile Include="ctlLocations.cs" />
     <Compile Include="ctlUserLocations.cs" />
     <Compile Include="ctrlImages.cs" />
@@ -276,13 +280,6 @@
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -293,6 +290,7 @@
     <Content Include="Global.asax" />
     <Content Include="Images\ajax-loader.gif" />
     <Content Include="Images\CapeTown.jpg" />
+    <Content Include="Images\Close.png" />
     <Content Include="Images\Durban.jpg" />
     <Content Include="Images\favAdd.png" />
     <Content Include="Images\favRem.png" />
@@ -328,7 +326,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Default.aspx" />
     <Content Include="__Installation\BlueChappie.sql" />
     <None Include="Properties\PublishProfiles\localhost.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -365,6 +362,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ImageListHTML\" />
     <Folder Include="Views\SinlgeImageInfo\" />
   </ItemGroup>
   <ItemGroup>

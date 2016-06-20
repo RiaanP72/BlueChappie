@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -12,7 +12,7 @@ namespace BlueChappie.Controllers
     {
 
         // GET: api/LocationsHTML/5
-        public string Get(String UserId="")
+        public string Get(String UserId = "")
         {
             string _retval = "";
             clsMainProgram cls = new clsMainProgram();
@@ -24,15 +24,15 @@ namespace BlueChappie.Controllers
             {
                 _retval += "<tr><td><p class=" + kwot + "locationsp" + kwot + " onclick=" + kwot + "imgSelectLocation('" + lcn.tKey + "')" + kwot + ">" + lcn.tag + "</p>";
 
-                if (UserId !=null)// !UserId.Equals(""))
+                if (!UserId.Equals("undefined"))
                 {
                     if (lcn.isFavourite)
                     {
-                        _retval += "<img src=" + kwot + "images/favRem.png" + kwot + " class=" + kwot + "fav" + kwot + " onclick=" + kwot + "addLocationToFavourite('" + lcn.tKey + "')" + kwot + " id=" + kwot + lcn.tKey + kwot + " />";
+                        _retval += "<img src=" + kwot + "images/favRem.png" + kwot + " class=" + kwot + "fav" + kwot + " onclick=" + kwot + "addLocationToFavourite('" + lcn.tKey + "')" + kwot + " id=" + kwot + lcn.tKey + kwot + "  style=" + kwot + "cursor:pointer" + kwot + " />";
                     }
                     else
                     {
-                        _retval += "<img src=" + kwot + "images/favAdd.png" + kwot + " class=" + kwot + "fav" + kwot + " onclick=" + kwot + "addLocationToFavourite('" + lcn.tKey + "')" + kwot + " id=" + kwot + lcn.tKey + kwot + " />";
+                        _retval += "<img src=" + kwot + "images/favAdd.png" + kwot + " class=" + kwot + "fav" + kwot + " onclick=" + kwot + "addLocationToFavourite('" + lcn.tKey + "')" + kwot + " id=" + kwot + lcn.tKey + kwot + "  style=" + kwot + "cursor:pointer" + kwot + " />";
                     }
 
                 }
@@ -47,7 +47,7 @@ namespace BlueChappie.Controllers
                 foreach (image img in lcn.locationimages)
                 {
 
-                    _retval += "<td><img  onclick=" + kwot + "imgSelectLocation('" + lcn.tKey + "')" + kwot + " class=" + kwot + "locationsimg" + kwot + " onmousehover='cursor:pointer' src=" + kwot + "data:image/jpeg;base64," + img.webImageThumbnailBase64Encoded + "" + kwot + " /></td>" + crlf;
+                    _retval += "<td><img  onclick=" + kwot + "imgSelectLocation('" + lcn.tKey + "')" + kwot + " class=" + kwot + "locationsimg" + kwot + " onmousehover='cursor:pointer' src=" + kwot + "data:image/jpeg;base64," + img.webImageThumbnailBase64Encoded + "" + kwot + "  style=" + kwot + "cursor:pointer" + kwot + " /></td>" + crlf;
 
                     i++;
                     if (i > 13)

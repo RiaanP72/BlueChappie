@@ -24,7 +24,7 @@ function getUserData()
 function loggin(emailaddress,password)
 {
      $.ajax({
-        url: "api/Login?emailaddress=" + emailaddress + "&password="+password
+        url: "~/api/Login?emailaddress=" + emailaddress + "&password="+password
         }).then(function(data) {
             if (data.userId=="z") {
                 document.getElementById("loginError").innerHTML = "Login failed!";
@@ -33,7 +33,7 @@ function loggin(emailaddress,password)
                 document.getElementById("lblUserClick").innerHTML = data.emailaddress;
                 document.getElementById("lblUserClick").onclick = "";
                 $(document.getElementById("divUser")).slideToggle(200);
-                document.location = "Default.aspx?user=" + data.userId;
+                document.location = "?user=" + data.userId;
             }
         });
 }
@@ -41,12 +41,12 @@ function addLocationToFavourite(location) {
     var userid = document.getElementById("hvUserId").value;
     if (userid != null) {
        $.ajax({
-            url: "api/UserLocations?userID=" + userid + "&tKey=" + location
+            url: "~/api/UserLocations?userID=" + userid + "&tKey=" + location
        }).then(function (data) {
            if (data) {
-               document.getElementById(location).src = "images/favrem.png";
+               document.getElementById(location).src = "~/images/favrem.png";
            } else {
-               document.getElementById(location).src = "images/favadd.png";
+               document.getElementById(location).src = "~/images/favadd.png";
            }
            buildUserLocations();
        });
@@ -57,12 +57,12 @@ function addUserLocationToFavourite(location) {
     var userid = document.getElementById("hvUserId").value;
     if (userid != null) {
        $.ajax({
-            url: "api/UserLocations?userID=" + userid + "&tKey=" + location
+            url: "~/api/UserLocations?userID=" + userid + "&tKey=" + location
        }).then(function (data) {
            if (data) {
-               document.getElementById("u" + location).src = "images/favrem.png";
+               document.getElementById("u" + location).src = "~/images/favrem.png";
            } else {
-               document.getElementById("u" + location).src = "images/favadd.png";
+               document.getElementById("u" + location).src = "~/images/favadd.png";
            }
          buildUserLocations();
         });
@@ -74,7 +74,7 @@ function buildUserLocations()
       var userid = document.getElementById("hvUserId").value;
       if (userid != null) {
           $.ajax({
-              url: "api/UserLocationsHTML?userID=" + userid 
+              url: "~/api/UserLocationsHTML?userID=" + userid 
           }).then(function (data) {
               document.getElementById("divUserlocations").innerHTML = data;
           }

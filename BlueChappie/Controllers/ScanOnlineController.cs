@@ -3,41 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Web;
 using System.Web.Http;
-using static BlueChappie.Models.BlueChappieModels;
 
 namespace BlueChappie.Controllers
 {
-    public class LoginController : ApiController
+    public class ScanOnlineController : ApiController
     {
-        // GET: api/Login
+        // GET: api/ScanOnline
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET: api/Login/5
-        public user Get(string emailaddress,string password)
+        // GET: api/ScanOnline/5
+        public void Get(string Location)
         {
             clsMainProgram cls = new clsMainProgram();
-            user usr = cls.login(emailaddress, password);
-
-            return usr;
-
+            cls.SyncImages(Location);
         }
 
-        // POST: api/Login
+        // POST: api/ScanOnline
         public void Post([FromBody]string value)
         {
         }
 
-        // PUT: api/Login/5
+        // PUT: api/ScanOnline/5
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE: api/Login/5
+        // DELETE: api/ScanOnline/5
         public void Delete(int id)
         {
         }

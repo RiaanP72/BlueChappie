@@ -6,6 +6,7 @@ using Elasticsearch.Net;
 using static BlueChappie.Models.BlueChappieModels;
 using System.Net;
 using System.Drawing;
+using System.Web.SessionState;
 
 namespace BlueChappie
 {
@@ -657,7 +658,7 @@ namespace BlueChappie
         //
         //  login, well it tests the supplied login information and if the user does not exist it is autmaticaly created
         //
-        public user login(string emailaddress, string password)
+        public user login(string emailaddress, string password,string sessionID="")
         {
             user usr = new user();
             Boolean _exists = false;
@@ -695,6 +696,9 @@ namespace BlueChappie
                     RunSQL(strSQL);
                     _success = true;
                 }
+                //if (_success) {
+                //    RunSQL("INSERT INTO usersessions (sessionid,userid) VALUES ('" + sessionID + "','" + usr.userId + "')");
+                //}
             }
             else
             {

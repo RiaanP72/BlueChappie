@@ -211,6 +211,15 @@ namespace BlueChappie.Models
             public string dateHit { get; set; }
             public string dateTaken { get; set; }
             public string webImageBase64Encoded { get; set; }
+            public string webImageThumbnail240x250Base64Encoded
+            {
+                get
+                {
+                    clsMainProgram cls = new clsMainProgram();
+                    Image img = cls.Base64ToImage(webImageBase64Encoded).GetThumbnailImage(247, 250, () => false, IntPtr.Zero);
+                    return cls.ImageToBase64(img, System.Drawing.Imaging.ImageFormat.Png);
+                }
+            }
             public string webImageThumbnailBase64Encoded { get
                 {
                     clsMainProgram cls = new clsMainProgram();
