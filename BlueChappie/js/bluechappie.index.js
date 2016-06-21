@@ -20,10 +20,10 @@ $(document).ready(function () {
 });
 function showhideLocations()
 {
-    showWaitScreen();
+    $(document).ajaxStart(function(){ showWaitScreen();});
      var usr_id =  getCookie('UserId')
           $.ajax({
-             url:  window.location.pathname + "api/LocationsHTML?UserId=" +  getCookie('UserId')
+             url:  window.location.href + "api/LocationsHTML?UserId=" +  usr_id
          }).then(function (data) {
              document.getElementById("divlocations").innerHTML = data;
          }
@@ -34,34 +34,27 @@ function showhideLocations()
      $(document.getElementById("divUserlocations")).slideUp(100);
      $(document.getElementById("divloc")).slideToggle(200);
      $(document.getElementById("divlocations")).slideDown(200);
-     removeWaitScreen();
+     $(document).ajaxComplete(function(){removeWaitScreen();});
 }
 
 
 function imgSelectLocation(location) {
-    //window.setTimeout(showWaitScreen, 500);
-   // var x = window.setTimeout(showWaitScreen, 500);
-    showWaitScreen();
+    $(document).ajaxStart(function(){ showWaitScreen();});
     $.ajax({
-              url:  window.location.pathname + "api/MainImageListHTML?Location=" + location 
+              url:  window.location.href + "api/MainImageListHTML?Location=" + location 
           }).then(function (data) {
               document.getElementById("divMainImageList").innerHTML = data;
           })
-
-    
     $(document.getElementById("divlocations")).slideUp(100);
     $(document.getElementById("divloc")).slideUp(100);
     $(document.getElementById("divUserlocations")).slideUp(100);
     $(document.getElementById("divUser")).slideUp(100);
-    //  window.clearTimeout(x);
-    //window.clearTimeout();
-    removeWaitScreen();
-   
+    $(document).ajaxComplete(function(){removeWaitScreen();});
 }
 function scanOnline() {
     var slocation = document.getElementById("txtLocation").value;
     $.ajax({
-            url:  window.location.pathname + "api/ScanOnline?Location=" + slocation
+            url:  window.location.href + "api/ScanOnline?Location=" + slocation
     }).then(function (data) {
         imgSelectLocation(location)
     })
@@ -73,7 +66,7 @@ function getImgData(imgGUID)
     $(document.getElementById("divUser")).slideUp(20);
     $(document.getElementById("divUserlocations")).slideUp(20);
     $.ajax({
-            url:  window.location.pathname + "api/ImageInfo?imgGUID=" + imgGUID
+            url:  window.location.href + "api/ImageInfo?imgGUID=" + imgGUID
         }).then(function(data) {
             document.getElementById("img").innerHTML = '<img class="img" src="data:image/jpg;base64,' + data.webImageBase64Encoded + '">';
             document.getElementById("imgtitle").innerHTML=data.title;
@@ -122,14 +115,15 @@ function showhideUserLocations()
 function getUserData()
     {
     document.getElementById("lblUserClick").innerHTML = "Checking login information";
-    showWaitScreen();   
+    
     loggin(document.getElementById("emailaddress").value, document.getElementById("password").value);
-    removeWaitScreen();
+    
 }
 function loggin(emailaddress,password)
 {
+    $(document).ajaxStart(function(){ showWaitScreen();});
      $.ajax({
-        url: window.location.pathname + "api/Login?emailaddress=" + emailaddress + "&password="+password
+        url: window.location.href + "api/Login?emailaddress=" + emailaddress + "&password="+password
         }).then(function(data) {
             if (data.userId=="z") {
                 document.getElementById("loginError").innerHTML = "Login failed!";
@@ -145,12 +139,13 @@ function loggin(emailaddress,password)
                 setCookie('EmailAddress', data.emailaddress, 1);
             }
         });
+    $(document).ajaxComplete(function(){removeWaitScreen();});
 }
 function addLocationToFavourite(location) {
     var userid = getCookie('UserId')
     if (userid != null) {
        $.ajax({
-            url:  window.location.pathname + "api/UserLocations?userID=" + userid + "&tKey=" + location
+            url:  window.location.href + "api/UserLocations?userID=" + userid + "&tKey=" + location
        }).then(function (data) {
            if (data) {
                document.getElementById(location).src = "images/favrem.png";
@@ -166,7 +161,7 @@ function addUserLocationToFavourite(location) {
     var userid =  getCookie('UserId')
     if (userid != null) {
        $.ajax({
-            url:  window.location.pathname + "api/UserLocations?userID=" + userid + "&tKey=" + location
+            url:  window.location.href + "api/UserLocations?userID=" + userid + "&tKey=" + location
        }).then(function (data) {
            if (data) {
                document.getElementById("u" + location).src = "images/favrem.png";
@@ -179,19 +174,19 @@ function addUserLocationToFavourite(location) {
 }
 function buildUserLocations()
 {
-    showWaitScreen();
+    $(document).ajaxStart(function(){ showWaitScreen();});
 
     var userid =  getCookie('UserId')
       if (userid != null) {
           $.ajax({
-              url:  window.location.pathname + "api/UserLocationsHTML?userID=" + userid 
+              url:  window.location.href + "api/UserLocationsHTML?userID=" + userid 
           }).then(function (data) {
               document.getElementById("divUserlocations").innerHTML = data;
           }
                
       )
     };
-    removeWaitScreen();
+    $(document).ajaxComplete(function(){removeWaitScreen();});
 }
 
 

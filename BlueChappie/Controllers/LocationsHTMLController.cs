@@ -24,7 +24,7 @@ namespace BlueChappie.Controllers
             {
                 _retval += "<tr><td><p class=" + kwot + "locationsp" + kwot + " onclick=" + kwot + "imgSelectLocation('" + lcn.tKey + "')" + kwot + ">" + lcn.tag + "</p>";
 
-                if (!UserId.Equals("undefined"))
+                if (UserId != null)
                 {
                     if (lcn.isFavourite)
                     {

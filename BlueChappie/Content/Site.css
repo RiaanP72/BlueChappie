@@ -19,6 +19,7 @@ textarea {
 td {
     padding-top:1px;
     padding-bottom:1px;
+    padding-right:1px;
 }
 .imagelist {
     border-radius:12px;
@@ -103,13 +104,26 @@ td {
      border-radius:15px;
 }
 
+
+
 .currentimage {
     text-align:center;
     border-radius:12px;
     padding-left:12px;
     
 }
-
+.imgLocation {
+    
+    text-align:right;
+    background-color:papayawhip;
+    padding-right:12px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:darkslateblue;
+    border-color:transparent;
+    border-style:solid;
+    border-width:5px;
+    border-radius:6px;
+}
 .imagename {
     border-radius:6px;
     text-align:right;
@@ -136,6 +150,22 @@ td {
     font-weight:700;
     border-left:solid;
     padding-left:4px;
+}
+
+.imgtxtdatascroll {
+    text-align:left;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:white;
+    font-size:12px;
+    font-weight:700;
+    border-left:solid;
+    padding-left:4px;
+    /*width:500px;*/
+    height:70px;
+    overflow:auto;
+    max-width:470px;
+  
+
 }
 
 img {
