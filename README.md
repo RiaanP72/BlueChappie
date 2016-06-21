@@ -8,9 +8,8 @@ My elasticsearch server lives on my Debian Linux box.
 #Quick Setup:
 Download the file BlueChappie.zip ( https://github.com/RiaanP72/BlueChappie/blob/master/BlueChappie.zip ) and extract it to your IIS server www folder. if it cannot have it's own DNS entry ,ake sure it's "Converted to Application". It is build with .NET 4.5.2 so the recommended application pool is .NET v4.5 classic or integrated.
 
-#Know bugg !!!:
-The wiring for index.chtml is incorrect. It will be fixed shortly.
-In the meantime run default.aspx (http://localhost/bluechappie/default.aspx)
+# Buggs:
+No know buggs.
 
 #ElasticSearch
 It is my 1st time playing around with elasticsearch and I must say a learnt allot in these few days. It is a great product!
