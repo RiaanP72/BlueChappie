@@ -5,6 +5,9 @@ I tried to keep all the code in one file clsMainProgram.cs so that definition re
 In the __Installation folder in a SQL script to create the data base on an SQL server. There is also BlueChappie.7z which contains a backup made of the data base and already contains some data, so you can restore it to a SQL server.
 The images are stored Base64 encoded to enable easy transport.
 My elasticsearch server lives on my Debian Linux box.
+To see what BlueChappie runs like the video is on https://youtu.be/vFHNb5jcGWg
+
+
 #Quick Setup:
 Download the file BlueChappie.zip ( https://github.com/RiaanP72/BlueChappie/blob/master/BlueChappie.zip ) and extract it to your IIS server www folder. if it cannot have it's own DNS entry ,ake sure it's "Converted to Application". It is build with .NET 4.5.2 so the recommended application pool is .NET v4.5 classic or integrated.
 
@@ -13,7 +16,7 @@ No know buggs.
 
 #ElasticSearch
 It is my 1st time playing around with elasticsearch and I must say a learnt allot in these few days. It is a great product!
-To see what BlueChappie runs like the video is on https://youtu.be/vFHNb5jcGWg
+
 #The important bit:
 In the root directory of the BlueChappie application is the web.config (from line 14) (https://github.com/RiaanP72/BlueChappie/blob/master/BlueChappie/Web.config)
 #PLEASE
