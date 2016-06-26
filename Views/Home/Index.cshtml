@@ -1,0 +1,151 @@
+﻿<link href="Content/Site.css" rel="stylesheet" type="text/css" />
+<script src="Scripts/jquery-1.10.2.js"></script>
+
+    <div id="mainForm" class="mainForm">
+        
+        <div class="imageinfo" id="imginfo">
+            <table style="width:100%">
+                <tr >
+                    <td rowspan="2"  ><p id="img" class="currentimage">[Image]</p></td>
+                    <td >
+                    <table ><tr>
+                        <td><p class="imgtxtinfo">Title</p></td>
+                        <td><p class="imgtxtdata" id="imgtitle"></p></td>
+                        
+                    </tr>
+                    <tr>
+                        <td><p class="imgtxtinfo">Tags</p></td>
+                        <td><div class="imgtxtdatascroll" id="imgtags" ></div></td>
+                       
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td><p class="imgtxtinfo">Owner</p></td>
+                        <td><p class="imgtxtdata" id="imgowner"></p></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td><p class="imgtxtinfo">Date Taken</p></td>
+                        <td><p class="imgtxtdata" id="imgdatetaken"></p></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td><p class="imgtxtinfo">Date Found</p></td>
+                        <td><p class="imgtxtdata" id="imgdatehit"></p></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                
+                    <tr>
+                        <td><p class="imgtxtinfo">Local Tag</p></td>
+                        <td><p class="imgtxtdata" id="imgtag"></p></td>
+                        <td>&nbsp;</td>
+                    </tr></table></td>
+                    <td style="vertical-align:top;width:25px"><img style="padding-top:5px;height:20px;width:20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAfElEQVR42mNgPPLnPzbMQAbAaRYuCVItwmsOPkliLSJoBiEFhCwiSj8xinBZRLReYhWiW0SyPlI1kOswkjRSEsQMNLeAmhYxUCPdUysDM9DcArKTKS0toFtQ0S3S6ZZ86ZYRKS5S6FI4kuWwQVOf0LxmpHkdT/PWCjWLIgDLoJv9e0FzaAAAAABJRU5ErkJggg==" onclick="closeimginfo();"/></td></tr>
+                    <tr ><td colspan="2" style ="border-style:solid;border-color:#232323;border-radius:15px;padding-left:10px;color:white">&nbsp; <br/> &nbsp; <br/> &nbsp; <br/> &nbsp; <br/> &nbsp; <br/>&nbsp; <br/>&nbsp; <br/></td>
+
+                </tr>
+               
+            </table>
+
+
+
+
+        </div>
+    <div style="width:1000px;margin:0 auto;" >
+        <table id="divform" >
+            <tr>
+                <td><img src="~/Images/Durban.jpg" alt="Durban" height="330" width="248" onclick="imgSelectLocation('durban');"/></td>
+                <td><img src="~/Images/CapeTown.jpg" alt="Cape Town" height="330" width="248" onclick="imgSelectLocation('cape town');"/></td>
+                <td><img src="~/Images/Pretoria.jpg" alt="Pretoria" height="330" width="248" onclick="imgSelectLocation('pretoria');"/></td>
+                <td><img src="~/Images/Johannesburg.jpg" alt="Johannesburg" height="330" width="248" onclick="imgSelectLocation('johannesburg');"/></td>
+
+            </tr>
+            <tr>
+                <td class="imgLocation">Durban</td>
+                <td class="imgLocation">Cape Town</td>
+                <td class="imgLocation">Pretoria</td>
+                <td class="imgLocation">Johannesburg</td>
+
+            </tr>
+        </table>
+
+     
+       
+        <br />
+        <table style="border-color:transparent;border-style:solid;width:100%"><tr>
+            <td>
+            <p onclick="showhideLocations()" id="locClick" class="sitebuttons">Show/Hide uploaded locations</p>
+            </td>
+            <td>
+            <p onclick="showhideUserLocations()" id="usrlocClick" class="sitebuttons">Show/Hide favorite locations</p>
+            </td>
+            <td>
+            <p onclick="showhideLogin()" id="lblUserClick" class="sitebuttons">Login</p>
+               
+            </td>
+            </tr>
+        </table>
+        <div id="divloc" class="locations">
+        <div id="divlocations" class="locations"  >
+            <cc1:ctlLocations  Id="ctlLocations1" style="width:1005px"/>
+            </div>
+
+                <div class="centreScreen" id="userScan">
+                  <table>
+                      <tr><th>Online scan:<i>This will take a while</i></th><td><input type="text" ID="txtLocation"></td><td><p onclick="scanOnline()" id="lblScanClick" class="sitebuttons">Scan online</p></td></tr>
+                    </table>
+                </div>
+            
+        </div>
+        <div id="divUserlocations" class="locations"  >
+            @*<cc1:ctlUserLocations  Id="ctlUserLocations1"  style="width:100%"/>*@
+            
+        </div>
+
+        <div id="divUser" class="divuser"  >
+            <table style="width:100%">
+                <tr><th colspan="2">Please provide login details</th></tr>
+                <tr><td>Email address</td><td><input id="emailaddress" type="email" /></td></tr>
+                <tr><td>Password</td><td><input id="password" type="password" /></td></tr>
+                <tr><th colspan="2" style="color:red" id="loginError">&nbsp</th></tr>
+                <tr><td colspan="2"><p onclick="getUserData()" id="login" class="sitebuttons" style="width:100%">Login</p></td></tr>
+            </table>
+        </div>
+       
+       <div id="divMainImageList" style="width:100%"></div>
+       
+    
+    </div>
+    <p>
+        <asp:HiddenField ID="hvUserEmailAddress"  />
+        <asp:HiddenField ID="hvUserId"  />
+        </p>
+            
+        
+   </div>
+<div id="waitScreen" class="waitscreen">
+            <img src="data:image/gif;base64,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" />
+         
+        </div>
+<script>
+    
+     $(document.getElementById("divloc")).slideUp(20);
+    $(document.getElementById("divlocations")).slideUp(20);
+    $(document.getElementById("divUser")).slideUp(20);
+    
+    $(document.getElementById("divUserlocations")).slideUp(20);
+    $("img").hover(function(){
+      
+        $(this).css("border-color", "#000099");
+        $(this).css("cursor", "pointer");
+      
+        }, function(){
+      
+        $(this).css("border-color", "transparent");
+        });
+    
+    var useremail = getCookie("EmailAddress");
+    var userid = getCookie("UserId");
+    if (userid == "") { $(document.getElementById("usrlocClick")).css("visibility", "hidden") } else { $(document.getElementById("usrlocClick")).css("visibility", "visible") };
+    if (useremail != ""){ document.getElementById("lblUserClick").innerHTML= useremail;}
+</script>
