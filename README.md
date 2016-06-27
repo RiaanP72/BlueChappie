@@ -10,7 +10,9 @@ To see what BlueChappie runs like the video is on https://youtu.be/vFHNb5jcGWg
 
 #Quick Setup:
 Download the file BlueChappie.zip ( https://github.com/RiaanP72/BlueChappie/blob/master/BlueChappie.zip ) and extract it to your IIS server www folder. if it cannot have it's own DNS entry ,ake sure it's "Converted to Application". It is build with .NET 4.5.2 so the recommended application pool is .NET v4.5 classic or integrated.
-A backup copy of the database is located in BlueChappie install from my master tree (bluieChappie.exe (7zip) with the 10mb files).
+A backup copy of the database is located in BlueChappie install from my master tree (BlueChappie.exe (7zip) with the 10mb files).
+https://github.com/RiaanP72/BlueChappie-Install
+
 
 # Buggs:
 No know buggs.
