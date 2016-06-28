@@ -462,8 +462,8 @@ namespace BlueChappie
                 strSQL += "sourceID ='" + img.sourceID + "',";
                 strSQL += "sourceSecret ='" + img.sourceSecret + "',";
                 strSQL += "sourceFarm ='" + img.sourceFarm + "',";
-                strSQL += "webImageBase64Encoded ='" + img.webImageBase64Encoded + "',";
-                strSQL += "WHERE sourceURL ='" + img.keyword + "'";
+                strSQL += "webImageBase64Encoded ='" + img.webImageBase64Encoded + "'";
+                strSQL += " WHERE sourceURL ='" + img.keyword + "'";
 
                 RunSQL(strSQL);
                
