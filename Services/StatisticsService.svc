@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="BlueChappie.Services.StatisticsService" CodeBehind="StatisticsService.svc.cs" %>

@@ -10,6 +10,7 @@ using System.Web.SessionState;
 using System.ComponentModel;
 using System.Reflection;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BlueChappie
 {
@@ -132,11 +133,47 @@ namespace BlueChappie
             }
 
         }
-        public string GetStatus(String ClientRequestID)
+        public async Task<string> GetStatusAsync(String ClientRequestID)
         {
             if (System.Configuration.ConfigurationManager.AppSettings["StorageType"].Equals("SQL"))
             {
                 return ReadDataSet("SELECT [Status] FROM userrequests WHERE ClientRequestID='" + ClientRequestID + "'").Tables[0].Rows[0].Field<string>("Status");
+            }
+            else
+            {
+                var node = new Uri(blueChappieSetttings.BlueChappieElasticServer + "/userrequests/");
+                String _status = "";
+                var config = new Elasticsearch.Net.ConnectionConfiguration(node);
+                var client = new ElasticLowLevelClient(config);
+                var query = new object();
+                query = new { query = new { term = new { ClientRequestId = ClientRequestID } } };
+                dynamic result = await client.SearchAsync<Object>(query);
+                if (result.Body != null)
+                {
+                    for (int i = 0; i < result.Body.hits.total; i++)
+                    {
+                        _status = result.Body.hits.hits[i]._source.ClientRequestIdStatus;
+                    }
+                }
+                        return _status;
+                }
+
+        }
+
+        public string GetStatus(String ClientRequestID)
+        {
+            if (System.Configuration.ConfigurationManager.AppSettings["StorageType"].Equals("SQL"))
+            {
+                try
+                {
+                    return ReadDataSet("SELECT [Status] FROM userrequests WHERE ClientRequestID='" + ClientRequestID + "'").Tables[0].Rows[0].Field<string>("Status");
+                }
+                catch (Exception)
+                {
+
+                    return "";
+                }
+                
             }
             else
             {
@@ -154,8 +191,8 @@ namespace BlueChappie
                         _status = result.Body.hits.hits[i]._source.ClientRequestIdStatus;
                     }
                 }
-                        return _status;
-                }
+                return _status;
+            }
 
         }
 
@@ -221,7 +258,7 @@ namespace BlueChappie
                                 imageinfo.tags = xmlreader.GetAttribute("tags").Replace("'", "`");
                                 imageinfo.owner = xmlreader.GetAttribute("ownername").Replace("'", "`");
                                 imageinfo.origin = "flickr.com";
-                                imageinfo.sourceID = xmlreader.GetAttribute("id");
+                                imageinfo.sourceID = xmlreader.GetAttribute("server-id");
                                 imageinfo.sourceSecret = xmlreader.GetAttribute("secret");
                                 imageinfo.sourceFarm = xmlreader.GetAttribute("farm");
                                 imageinfo.sourceServer= imageinfo.sourceID = xmlreader.GetAttribute("server");
@@ -462,8 +499,8 @@ namespace BlueChappie
                 strSQL += "sourceID ='" + img.sourceID + "',";
                 strSQL += "sourceSecret ='" + img.sourceSecret + "',";
                 strSQL += "sourceFarm ='" + img.sourceFarm + "',";
-                strSQL += "webImageBase64Encoded ='" + img.webImageBase64Encoded + "',";
-                strSQL += "WHERE sourceURL ='" + img.keyword + "'";
+                strSQL += "webImageBase64Encoded ='" + img.webImageBase64Encoded + "'";
+                strSQL += " WHERE sourceURL ='" + img.keyword + "'";
 
                 RunSQL(strSQL);
                

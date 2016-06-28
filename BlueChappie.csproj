@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -100,6 +101,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -273,6 +276,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Hubs\StatisticsHub.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -280,6 +284,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
+    <Compile Include="Services\StatisticsService.svc.cs">
+      <DependentUpon>StatisticsService.svc</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="XmlReaderExtensions.cs" />
   </ItemGroup>
@@ -328,6 +335,8 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Services\StatisticsService.svc" />
+    <Content Include="__Installation\BlueChappie.exe" />
     <Content Include="__Installation\BlueChappie.sql" />
     <None Include="Properties\PublishProfiles\localhost.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -360,6 +369,13 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="__Installation\BlueChappie.7z.001" />
+    <Content Include="__Installation\BlueChappie.7z.002" />
+    <Content Include="__Installation\BlueChappie.7z.003" />
+    <Content Include="__Installation\BlueChappie.7z.004" />
+    <Content Include="__Installation\BlueChappie.7z.005" />
+    <Content Include="__Installation\BlueChappie.7z.006" />
+    <Content Include="__Installation\BlueChappie.7z.007" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

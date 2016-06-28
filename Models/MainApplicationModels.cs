@@ -81,7 +81,19 @@ namespace BlueChappie.Models
             }
         }
         public class scanstatus {
-            public string ClientRequestId { get; set; }
+            private string _ClientRequestId;
+            public string ClientRequestId {
+               
+                get {
+                    return _ClientRequestId;
+                }
+                set
+                {
+                    this._ClientRequestId = value;
+                    clsMainProgram cls = new clsMainProgram();
+                    this.ClientRequestIdStatus = cls.GetStatus(_ClientRequestId);
+                }
+                     }
             public string ClientRequestIdStatus { get; set; }
         }
         public class user {

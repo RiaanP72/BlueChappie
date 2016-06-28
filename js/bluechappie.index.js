@@ -106,7 +106,8 @@ function checkStatus() {
                 imgSelectLocation(data.replace("Completed ", ""));
             } else {
                 if (document.getElementById("Log").innerHTML != "Idle...")
-                { var tmr = setInterval(checkStatus, 1500); }
+                { var tmr = setInterval(checkStatus, 1500); 
+                }
             }
         })
     }

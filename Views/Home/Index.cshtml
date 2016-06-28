@@ -147,5 +147,15 @@
     var useremail = getCookie("EmailAddress");
     var userid = getCookie("UserId");
     if (userid == "") { $(document.getElementById("usrlocClick")).css("visibility", "hidden") } else { $(document.getElementById("usrlocClick")).css("visibility", "visible") };
-    if (useremail != ""){ document.getElementById("lblUserClick").innerHTML= useremail;}
+    if (useremail != "") { document.getElementById("lblUserClick").innerHTML = useremail; }
+    var connection = $.hubConnection();
+        var hub = connection.createHubProxy("StatisticsHub");
+        hub.on("updateStatistics", function (statistics) {
+                statisticsData = statistics;
+                document.getElementById("Log2").innerHTML = statisticsData;
+
+                showCharts(statisticsData);
+          });
+
+        connection.start();
 </script>

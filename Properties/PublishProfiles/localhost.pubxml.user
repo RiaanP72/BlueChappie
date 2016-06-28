@@ -82,7 +82,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/09/2016 12:00:50</publishTime>
     </File>
     <File Include="bin/BlueChappie.dll">
-      <publishTime>06/24/2016 08:54:33</publishTime>
+      <publishTime>06/26/2016 21:12:14</publishTime>
     </File>
     <File Include="bin/Elasticsearch.Net.dll">
       <publishTime>06/16/2016 09:29:05</publishTime>
@@ -379,7 +379,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/09/2016 12:00:14</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/24/2016 08:54:35</publishTime>
+      <publishTime>06/26/2016 21:12:15</publishTime>
     </File>
     <File Include="zDefault.aspx">
       <publishTime>06/20/2016 14:30:38</publishTime>

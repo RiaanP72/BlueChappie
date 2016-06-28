@@ -1,10 +1,12 @@
-﻿using System;
+﻿using BlueChappie.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace BlueChappie.Controllers
@@ -23,14 +25,19 @@ namespace BlueChappie.Controllers
         public String Get(String ClientRequestId)
         {
             clsMainProgram cls = new clsMainProgram();
-            return cls.GetStatus(ClientRequestId.Replace("-",""));
+            string status = cls.GetStatus(ClientRequestId.Replace("-", ""));
+            return status;
         }
        
         // POST: api/ScanOnline
-        public void Post(string Location, String ClientRequestId)
+        public async Task Post(string Location, String ClientRequestId)
         {
+
             clsMainProgram cls = new clsMainProgram();
             cls.doSyncWork(Location, ClientRequestId.Replace("-", ""));
+            StatisticsService ss=new StatisticsService();
+            await ss.NotifyUpdates(ClientRequestId.Replace("-", ""));
+
         }
 
         // PUT: api/ScanOnline/5
