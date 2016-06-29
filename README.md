@@ -1,6 +1,9 @@
 # BlueChappie
 
 This API uses ASP.NET 4.5.2 and aggregates images and metadata about those images from an external source Flickr.com. 
+
+The scan process gets forked to the background as soon as the system has setup all the parameters. The scan status updates on the top of the screen uses SignalR to update the client's browser.
+
 The API focus is on the Controllers that is uses throughout the application. The data structure connects to either a MSSQL data base or ElasticSearch Index.
 The _ViewStart.cshtml pointing to Index.cshtml run a one-page application that utilises these REST API’s GET and POST methods.
 This API uses SQL server or an elasticsearch server to store images with their meta data as retrieved from the Flickr.com API.
